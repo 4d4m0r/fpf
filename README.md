@@ -35,7 +35,7 @@ O projeto inclui operações de CRUD (Create, Read, Update, Delete) para estudan
 Clonar o repositório
 
 ```
-git clone https://github.com/seu-usuario/seu-repositorio.git
+git clone https://github.com/4d4m0r/fpf.git
 ```
 
 ### Backend
