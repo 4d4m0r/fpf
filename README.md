@@ -78,10 +78,6 @@ git clone https://github.com/4d4m0r/fpf.git
    ```
    docker-compose up --build
    ```
-2. Inicialize as migrações do banco de dados:
-   ```
-   docker exec -t fpf_backend npx prisma generate
-   ```
 
 ## Exemplos de Uso da API
 
