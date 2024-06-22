@@ -1,0 +1,43 @@
+<button type="button" class="btn btn-primary" (click)="openModal()">Adicionar Estudante</button>
+
+<div class="modal fade" id="studentFormModal" tabindex="-1" role="dialog" aria-labelledby="studentFormModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="studentFormModalLabel">{{ student.id ? 'Editar Estudante' : 'Adicionar Estudante' }}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="closeModal()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form #studentForm="ngForm" (ngSubmit)="onSubmit(studentForm)">
+          <div class="mb-3">
+            <label for="nome" class="form-label">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" ngModel [ngModel]="student.nome">
+          </div>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" ngModel [ngModel]="student.email">
+          </div>
+          <div class="mb-3">
+            <label for="senha" class="form-label">Senha</label>
+            <input type="password" class="form-control" id="senha" name="senha" ngModel [ngModel]="student.senha">
+          </div>
+          <div class="mb-3">
+            <label for="idade" class="form-label">Idade</label>
+            <input type="number" class="form-control" id="idade" name="idade" ngModel [ngModel]="student.idade">
+          </div>
+          <div class="mb-3">
+            <label for="curso" class="form-label">Curso</label>
+            <input type="text" class="form-control" id="curso" name="curso" ngModel [ngModel]="student.curso">
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar</button>
+        </form>
+        <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+          {{errorMessage}}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

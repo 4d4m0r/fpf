@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center pt-5">
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center">Sign Up</h2>
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="nome">Nome:</label>
+              <input type="text" id="nome" class="form-control" [(ngModel)]="estudante.nome" name="nome" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" id="email" class="form-control" [(ngModel)]="estudante.email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="senha">Senha:</label>
+              <input type="password" id="senha" class="form-control" [(ngModel)]="estudante.senha" name="senha" required>
+            </div>
+            <div class="form-group">
+              <label for="idade">Idade:</label>
+              <input type="number" id="idade" class="form-control" [(ngModel)]="estudante.idade" name="idade" required>
+            </div>
+            <div class="form-group">
+              <label for="curso">Curso:</label>
+              <input type="text" id="curso" class="form-control" [(ngModel)]="estudante.curso" name="curso" required>
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <button type="submit" class="btn btn-primary btn-block">Sign Up</button>
+              </div>
+              <div class="col">
+                <button type="button" (click)="goToLogin()" class="btn btn-secondary btn-block">Voltar</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

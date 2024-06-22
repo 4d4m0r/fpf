@@ -1,0 +1,55 @@
+<app-student-form [student]="selectedStudent" (studentSaved)="onStudentSaved()"></app-student-form>
+
+<div class="container">
+  <div class="row justify-content-center mt-5">
+    <div>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Nome</th>
+            <th>Email</th>
+            <th>Idade</th>
+            <th>Curso</th>
+            <th>Ações</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let student of students">
+            <td>{{ student.nome }}</td>
+            <td>{{ student.email }}</td>
+            <td>{{ student.idade }}</td>
+            <td>{{ student.curso }}</td>
+            <td>
+              <button (click)="editStudent(student)" class="btn btn-sm btn-primary">
+                <span class="bi bi-pencil-square"></span> Editar
+              </button>
+              <button (click)="deleteStudent(student.id)" class="btn btn-sm btn-danger">
+                <span class="bi bi-trash"></span> Deletar
+              </button>
+              <button (click)="showStudent(student.id)" class="btn btn-sm btn-info">
+                <span class="bi bi-eye"></span> Ver
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="viewStudent" class="modal-overlay">
+  <div class="modal-card">
+    <div class="modal-header">
+      <h5 class="modal-title">{{ viewStudent.nome }}</h5>
+      <button type="button" class="close" (click)="closeView()">&times;</button>
+    </div>
+    <div class="modal-body">
+      <p><strong>Email:</strong> {{ viewStudent.email }}</p>
+      <p><strong>Idade:</strong> {{ viewStudent.idade }}</p>
+      <p><strong>Curso:</strong> {{ viewStudent.curso }}</p>
+    </div>
+    <div class="modal-footer">
+      <button (click)="closeView()" class="btn btn-secondary">Fechar</button>
+    </div>
+  </div>
+</div>

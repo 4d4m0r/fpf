@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row justify-content-center align-items-center pt-5">
+    <div class="col-md-6 col-lg-4">
+      <div class="card">
+        <div class="card-body">
+          <h2 class="text-center">Login</h2>
+          <form (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input
+                type="email"
+                id="email"
+                class="form-control"
+                [(ngModel)]="credentials.email"
+                name="email"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <label for="senha">Senha:</label>
+              <input
+                type="password"
+                id="senha"
+                class="form-control"
+                [(ngModel)]="credentials.senha"
+                name="senha"
+                required
+              />
+            </div>
+            <div class="row mt-3">
+              <div class="col">
+                <button type="submit" class="btn btn-primary btn-block">Login</button>
+              </div>
+              <div class="col">
+                <button type="button" (click)="goToSignup()" class="btn btn-secondary btn-block">Cadastrar</button>
+              </div>
+            </div>
+          </form>
+          <div *ngIf="errorMessage" class="alert alert-danger mt-3" role="alert">
+            Usuário ou senha inválidos.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

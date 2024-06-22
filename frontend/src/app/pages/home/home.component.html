@@ -1,0 +1,9 @@
+<div class="container">
+  <div *ngIf="showLogin">
+    <app-login></app-login>
+  </div>
+  <div *ngIf="!showLogin">
+    <app-signup></app-signup>
+    <button (click)="toggleSignup()">Voltar</button>
+  </div>
+</div>
