@@ -4,6 +4,7 @@ import router from './router'
 import session from 'express-session';
 import { v4 as uuidv4 } from 'uuid';
 import cors from 'cors'
+import morgan from 'morgan'
 
 declare module "express-session" {
     interface SessionData{
@@ -24,6 +25,7 @@ app.use(
       saveUninitialized: true,
     }),
   );
+app.use(morgan('short'));
 app.use(cors({credentials: true,origin: "http://localhost:4200"}));
 app.use(express.json())
 app.use(router);
