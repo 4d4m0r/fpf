@@ -48,11 +48,15 @@ git clone https://github.com/4d4m0r/fpf.git
    ```
    npm install
    ```
-3. Execute a migração do banco de dados:
+3. Converta o arquivo .env.example para .env:
    ```
-   npm start
+   cp .env.example .env
    ```
-4. Inicie o servidor:
+4. Execute a migração do banco de dados:
+   ```
+   npx prisma migrate dev
+   ```
+5. Inicie o servidor:
    ```
    npm start
    ```
@@ -74,7 +78,12 @@ git clone https://github.com/4d4m0r/fpf.git
 
 ## Instruções para Rodar o Projeto com Docker
 
-1. Construa e inicie os contêineres:
+1. Converta o arquivo .env.example para .env na pasta backend:
+   ```
+   cp .env.example .env
+   ```
+
+2. Construa e inicie os contêineres:
    ```
    docker-compose up --build
    ```
