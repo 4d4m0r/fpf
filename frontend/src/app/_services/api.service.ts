@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment.development';
 import { LoginDto, SignupDto } from '../_models/authTypes';
 import { tap } from 'rxjs/operators';
-import { Estudante } from '../_models/studentTypes';
+import { Estudante, viewEstudante } from '../_models/studentTypes';
 
 @Injectable({
   providedIn: 'root',
@@ -43,7 +43,7 @@ export class ApiService {
     return this.http.get<Estudante[]>(`${this.api}/estudante`, { withCredentials: true });
   }
 
-  addStudent(estudante: Estudante): Observable<any> {
+  addStudent(estudante: viewEstudante): Observable<any> {
     return this.http.post(`${this.api}/estudante`, estudante, { withCredentials: true });
   }
 

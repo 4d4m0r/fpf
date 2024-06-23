@@ -1,6 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../../_services/api.service';
-import { Estudante } from '../../_models/studentTypes';
+import { Estudante, viewEstudante } from '../../_models/studentTypes';
 
 @Component({
   selector: 'app-student-form',
@@ -26,7 +26,14 @@ export class StudentFormComponent {
         console.error('Erro ao atualizar o estudante', error);
       });
     } else {
-      this.apiService.addStudent(estudante).subscribe(response => {
+      const addEstudante: viewEstudante = {
+        nome: form.value.nome,
+        email: form.value.email,
+        senha: form.value.senha,
+        idade: form.value.idade,
+        curso: form.value.curso
+      };
+      this.apiService.addStudent(addEstudante).subscribe(response => {
         console.log('Estudante adicionado com sucesso!', response);
         this.studentSaved.emit();
         this.closeModal();
